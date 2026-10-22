@@ -1,0 +1,20 @@
+{
+  "email_from": "crm@yourcompany.com",
+  "teams": ["Team North", "Team South"],
+  "people": [
+    {"name": "Super Admin Name", "email": "superadmin@yourcompany.com", "role": "super_admin", "team": null},
+    {"name": "Admin Name", "email": "admin@yourcompany.com", "role": "admin", "team": null},
+    {"name": "North Leader", "email": "north.leader@yourcompany.com", "role": "team_leader", "team": "Team North"},
+    {"name": "North Rep One", "email": "north.rep1@yourcompany.com", "role": "user", "team": "Team North"},
+    {"name": "South Leader", "email": "south.leader@yourcompany.com", "role": "team_leader", "team": "Team South"},
+    {"name": "South Rep One", "email": "south.rep1@yourcompany.com", "role": "user", "team": "Team South"}
+  ],
+  "assignment": {
+    "default_team": "Team North",
+    "default_cap": 25,
+    "rules": [
+      {"name": "Events go South", "target_type": "team", "target": "Team South", "match": {"lead_source": "Event"}}
+    ],
+    "caps": {"north.rep1@yourcompany.com": 15}
+  }
+}

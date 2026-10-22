@@ -1,0 +1,84 @@
+# Local stack: Postgres, MinIO (fake S3), Mailpit (mail catcher), api, worker, web.
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: relay
+      POSTGRES_PASSWORD: relay
+      POSTGRES_DB: relay
+    ports: ["127.0.0.1:5432:5432"]  # dev passwords: never reachable from the network
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./infra/local/postgres-init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U relay -d relay"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio12345
+    ports: ["127.0.0.1:9000:9000", "127.0.0.1:9001:9001"]
+    volumes: [miniodata:/data]
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  minio-init:
+    image: minio/mc:latest
+    depends_on:
+      minio: {condition: service_healthy}
+    entrypoint: >
+      /bin/sh -c "mc alias set local http://minio:9000 minio minio12345 &&
+      mc mb --ignore-existing local/relay-files && mc anonymous set none local/relay-files"
+
+  mailpit:
+    image: axllent/mailpit:latest
+    ports: ["127.0.0.1:8025:8025", "127.0.0.1:1025:1025"]
+
+  api:
+    build: ./api
+    command: sh -c "alembic upgrade head && python -m app.platform.jobs.schema && python scripts/seed_dev.py && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://relay_app:relay_app@postgres:5432/relay
+      MIGRATION_DATABASE_URL: postgresql+asyncpg://relay:relay@postgres:5432/relay
+      SMTP_HOST: mailpit
+    ports: ["8000:8000"]
+    volumes: ["./api:/app"]
+    depends_on:
+      postgres: {condition: service_healthy}
+      minio-init: {condition: service_completed_successfully}
+
+  worker:
+    build: ./api
+    command: python -m app.worker
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://relay_app:relay_app@postgres:5432/relay
+      SMTP_HOST: mailpit
+    volumes: ["./api:/app"]
+    depends_on:
+      api: {condition: service_started}
+
+  web:
+    image: node:22-alpine
+    working_dir: /web
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+    environment:
+      VITE_API_URL: http://localhost:8000
+    ports: ["5173:5173"]
+    volumes:
+      - ./web:/web
+      - webmodules:/web/node_modules
+
+volumes:
+  pgdata:
+  miniodata:
+  webmodules:

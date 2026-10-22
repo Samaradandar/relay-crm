@@ -1,0 +1,187 @@
+/* Relay CRM design tokens — copied from the Relay CRM Design System (tokens.json). Do not edit by hand; re-copy when the system changes. */
+:root, [data-theme="light"] {
+  --surface-0: #F2F4F7; /* Page background (Cool White). Dark: deepest navy. */
+  --surface-1: #FFFFFF; /* Raised surfaces: cards, tables, dialogs, inputs, the sidebar (Pure White / Deep Navy). */
+  --surface-2: #E9EEF4; /* Sunken surfaces: Kanban column bodies, table headers, ID wells (between Cool White and Silver White). */
+  --surface-3: #D9E2EC; /* Hover and pressed fill for rows, nav items and quiet buttons (Silver White). */
+  --border: #D9E2EC; /* Hairline dividers and card outlines (Silver White). Decorative only. */
+  --border-control: #7A8899; /* Input, select and checkbox borders. Meets 3:1 on surface-0 and surface-1 in both themes. */
+  --ink: #17202A; /* Primary text and headings on every surface (Charcoal / Cool White). */
+  --ink-2: #3E4C5C; /* Secondary text: labels, supporting cells, meta lines. Reads on surface-0 to surface-3. */
+  --ink-3: #596778; /* Muted text: placeholders, timestamps, helper text. Use on surface-0, surface-1 and surface-2 only. */
+  --brand: #0866C6; /* Strong Blue (dark: Sky Blue). Primary buttons, selected nav item, current stage, links. One primary action per view. */
+  --brand-hover: #073B7A; /* Royal Blue (dark: Light Blue). Hover and pressed state of brand fills. */
+  --on-brand: #FFFFFF; /* Text and icons on a brand fill. */
+  --brand-soft: #E3F0FC; /* Selected rows, active tab underlay, completed stage segments. Text on it is ink or brand-ink. */
+  --brand-ink: #0866C6; /* Blue text and links on surface-0, surface-1 and brand-soft. */
+  --navy: #061A40; /* Deep Navy. Brand panels (sign-in, headers on dark bands) and the deep end of the blue gradients. Text on it is on-navy. */
+  --on-navy: #FFFFFF; /* Text on navy and on the blue gradients. */
+  --accent: #09C8CA; /* Cyan / Teal signal. Live dots, Today counts, 'new' markers, Revision round badge. One or two per screen. Text on it is on-accent. */
+  --on-accent: #030304; /* Text on an accent fill (Black). */
+  --accent-soft: #DCF6F6; /* Soft cyan ground for 'waiting on someone' notices (e.g. Awaiting confirmation). */
+  --accent-ink: #035261; /* Teal text on surface-1 and accent-soft (Deep Teal in light). */
+  --gold: #F1B655; /* Metallic Gold. Rank, leaderboard top three, target reached, your own row on the leaderboard. Never for status. Text on it is on-gold. */
+  --on-gold: #030304; /* Text on gold and amber fills. */
+  --gold-soft: #FBF3DA; /* Soft gold ground (from Light Gold / Warm Highlight) for rank and target callouts. */
+  --gold-ink: #7A4E00; /* Gold-coloured text on surface-1 and gold-soft (dark: Light Gold). */
+  --amber: #F69716; /* Metallic Amber. Second-place and progress highlights next to gold; fills only, never text. */
+  --success: #1B7A2C; /* Emerald family. Verified, Won, Paid, On track. Always with a word or icon. (Pure Emerald #239736 is used for bars and icons.) */
+  --success-soft: #E2F3E5; /* Ground for success badges and banners; text on it is success. */
+  --warning: #B23A03; /* Orange family. At risk, Due, Review needed, low minute balance. Always with a word or icon. (Pure Orange #F24D06 for bars and icons.) */
+  --warning-soft: #FDEADF; /* Ground for warning badges and banners; text on it is warning. */
+  --danger: #CB1304; /* Crimson. Rejected, Overdue, Proof missing, Lost, destructive buttons. Always with a word or icon. */
+  --danger-soft: #FCE6E3; /* Ground for danger badges and banners; text on it is danger. */
+  --focus: #0866C6; /* Focus ring: 2px solid, 2px offset, on every interactive element. At least 3:1 on every surface. */
+  --overlay: rgba(6,26,64,0.48); /* Backdrop behind dialogs and drawers (Deep Navy tint). */
+  --shadow-card: 0 1px 2px rgba(20,26,35,0.06); /* Deal cards and stat tiles: a whisper of lift. Borders do the main work. */
+  --shadow-drag: 0 10px 24px rgba(20,26,35,0.18); /* A deal card while being dragged on the board. */
+  --shadow-pop: 0 12px 32px rgba(20,26,35,0.18), 0 2px 6px rgba(20,26,35,0.08); /* Dialogs, menus, popovers, toasts. */
+}
+[data-theme="dark"] {
+  --surface-0: #04102A;
+  --surface-1: #061A40;
+  --surface-2: #0A2450;
+  --surface-3: #0F2E60;
+  --border: #1B3A6B;
+  --border-control: #6683AC;
+  --ink: #F2F4F7;
+  --ink-2: #AEBBC8;
+  --ink-3: #8E9DB2;
+  --brand: #16A8E0;
+  --brand-hover: #7DDDF4;
+  --on-brand: #030304;
+  --brand-soft: #0B3566;
+  --brand-ink: #7DDDF4;
+  --accent-soft: #063B4A;
+  --accent-ink: #7FE6E7;
+  --gold-soft: #3A2E10;
+  --gold-ink: #F2DC92;
+  --success: #4CC463;
+  --success-soft: #0B3320;
+  --warning: #FA8A55;
+  --warning-soft: #3D1E0C;
+  --danger: #FF6B57;
+  --danger-soft: #3D1210;
+  --focus: #7DDDF4;
+  --overlay: rgba(0,0,0,0.62);
+  --shadow-card: 0 1px 2px rgba(0,0,0,0.4);
+  --shadow-drag: 0 10px 24px rgba(0,0,0,0.55);
+  --shadow-pop: 0 12px 32px rgba(0,0,0,0.6), 0 2px 6px rgba(0,0,0,0.4);
+}
+:root {
+  --gradient-deep: linear-gradient(135deg, #061A40 0%, #073B7A 55%, #0866C6 100%); /* Deep Blue → Royal. Sign-in brand panel, page header bands. */
+  --gradient-cinematic: linear-gradient(135deg, #061A40 0%, #0866C6 45%, #16A8E0 78%, #7DDDF4 100%); /* Cinematic Blue. Opening screen glow, hero moments, target progress bar fill. */
+  --gradient-metallic: linear-gradient(135deg, #073B7A 0%, #0866C6 40%, #D9E2EC 85%, #FFFFFF 100%); /* Blue Metallic Highlight. The welcome strip at the top of a home page. */
+  --gradient-white: linear-gradient(180deg, #AEBBC8 0%, #D9E2EC 30%, #F2F4F7 65%, #FFFFFF 100%); /* White gradient. Subtle page washes and empty states. */
+  --space-1: 4px; /* Icon-to-label gap, badge padding. */
+  --space-2: 8px; /* Gap inside compact controls and between chips. */
+  --space-3: 12px; /* Card inner padding (compact), table cell horizontal padding. */
+  --space-4: 16px; /* Card padding, gap between form fields, page side gutter on phones. */
+  --space-5: 20px; /* Gap between Kanban columns. */
+  --space-6: 24px; /* Gap between page sections, dialog padding. */
+  --space-8: 32px; /* Page side gutter on desktop, space above a page title. */
+  --space-10: 40px; /* Large separations on empty states. */
+  --radius-sm: 4px; /* Badges, checkboxes, table row highlight. */
+  --radius-md: 6px; /* Buttons, inputs, selects, deal cards, tabs. */
+  --radius-lg: 10px; /* Panels, dialogs, stat tiles, toasts. */
+  --radius-pill: 999px; /* Team chips, avatars, round counters. */
+  --sidebar-width: 232px; /* App sidebar width on desktop; collapses to 64px icons-only below 1200px. */
+  --topbar-height: 56px; /* Top bar with search, bell and profile. */
+  --column-width: 280px; /* Kanban column width. */
+  --content-max: 1440px; /* Max content width for list and report pages; the board uses full width. */
+  --row-height: 44px; /* Default table row height; 36px in compact density. */
+  --z-sticky: 10; /* Sticky table headers and the top bar. */
+  --z-drawer: 40; /* Side drawers (history panel). */
+  --z-dialog: 50; /* Dialogs and their overlay. */
+  --z-toast: 60; /* Toasts (Undo) above everything. */
+  --font-sans: "Public Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --text-display: 700 28px/34px var(--font-sans); /* Page title, one per page (Today, Lead Pool, Leaderboard). */
+  --text-title: 600 20px/26px var(--font-sans); /* Deal and account header, dialog titles. */
+  --text-heading: 600 16px/22px var(--font-sans); /* Section and card headings. */
+  --text-subheading: 600 14px/20px var(--font-sans); /* Kanban column names, table group headings, field groups. */
+  --text-body: 400 14px/20px var(--font-sans); /* Default text everywhere: table cells, notes, form values. */
+  --text-body-strong: 600 14px/20px var(--font-sans); /* The main value in a row or card: company name, amount. */
+  --text-small: 400 13px/18px var(--font-sans); /* Card meta lines, helper text, timeline details. */
+  --text-caption: 500 12px/16px var(--font-sans); /* Badges, timestamps, chart axis labels. */
+  --text-overline: 600 11px/16px var(--font-sans); /* Uppercase lane and group labels (Your move, Waiting on them). Never for sentences. */
+  --text-metric: 600 24px/30px var(--font-sans); /* Stat tiles and leaderboard revenue. Always tabular figures. */
+  --text-mono: 500 12px/16px var(--font-mono); /* IDs, invoice numbers, API values. Not for amounts. */
+}
+.display {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.title {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.heading {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.subheading {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.body-strong {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.small {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.caption {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.overline {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.metric {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+.mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+}

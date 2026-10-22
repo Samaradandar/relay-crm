@@ -1,0 +1,73 @@
+{
+ "1000": {
+  "accounts": 1000,
+  "accounts_search_admin": {
+   "max_ms": 24,
+   "median_ms": 20
+  },
+  "check_name_match": {
+   "max_ms": 22,
+   "median_ms": 21
+  },
+  "check_no_match": {
+   "max_ms": 17,
+   "median_ms": 8
+  },
+  "check_phone_match": {
+   "max_ms": 18,
+   "median_ms": 10
+  },
+  "create_lead": {
+   "max_ms": 59,
+   "median_ms": 15
+  }
+ },
+ "20000": {
+  "6_concurrent_checks_total_ms": 1268,
+  "accounts": 20000,
+  "accounts_search_admin": {
+   "max_ms": 435,
+   "median_ms": 234
+  },
+  "check_name_match": {
+   "max_ms": 414,
+   "median_ms": 280
+  },
+  "check_no_match": {
+   "max_ms": 98,
+   "median_ms": 94
+  },
+  "check_phone_match": {
+   "max_ms": 59,
+   "median_ms": 57
+  },
+  "create_lead": {
+   "max_ms": 137,
+   "median_ms": 97
+  },
+  "me_latency_during_6_concurrent_checks_ms": 22
+ },
+ "5000": {
+  "accounts": 5000,
+  "accounts_search_admin": {
+   "max_ms": 63,
+   "median_ms": 63
+  },
+  "check_name_match": {
+   "max_ms": 66,
+   "median_ms": 64
+  },
+  "check_no_match": {
+   "max_ms": 34,
+   "median_ms": 30
+  },
+  "check_phone_match": {
+   "max_ms": 29,
+   "median_ms": 22
+  },
+  "create_lead": {
+   "max_ms": 48,
+   "median_ms": 33
+  }
+ }
+}

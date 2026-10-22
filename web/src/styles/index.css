@@ -1,0 +1,30 @@
+@import './tokens.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root { height: 100%; }
+  body { margin: 0; background: var(--surface-0); color: var(--ink); font-family: var(--font-sans); font-size: 14px; line-height: 20px; font-variant-numeric: tabular-nums; -webkit-font-smoothing: antialiased; }
+  :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  h1, h2, h3 { text-wrap: balance; }
+}
+
+@layer components {
+  .text-display { font: var(--text-display); letter-spacing: -0.01em; }
+  .text-title { font: var(--text-title); }
+  .text-heading { font: var(--text-heading); }
+  .text-subheading { font: var(--text-subheading); }
+  .text-body-strong { font: var(--text-body-strong); }
+  .text-small { font: var(--text-small); }
+  .text-caption { font: var(--text-caption); }
+  .text-overline { font: var(--text-overline); letter-spacing: 0.06em; text-transform: uppercase; }
+  .text-metric { font: var(--text-metric); }
+  .text-mono { font: var(--text-mono); }
+  .panel { background: var(--surface-1); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 1ms !important; transition-duration: 1ms !important; }
+}

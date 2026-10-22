@@ -1,0 +1,27 @@
+# Secrets and local settings (copy .env.example to .env)
+.env
+.env.*
+!.env.example
+
+# Local data: embedded Postgres, uploaded files, load-test data
+api/.localdata/
+*.log
+
+# Python
+.venv/
+__pycache__/
+*.egg-info/
+.coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Node / web build output and test runs
+node_modules/
+web/dist/
+web/e2e-results/
+web/e2e-report.json
+
+# Scratch files from test runs at the repo root
+/.pw*.json
+/.bt*.txt

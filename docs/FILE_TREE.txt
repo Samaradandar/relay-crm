@@ -1,0 +1,117 @@
+relay-crm/
+├── README.md                                             P0
+├── Makefile                                              P0
+├── docker-compose.yml                                    P0
+├── .env.example                                          P0
+├── .github/                                              
+│   └── workflows/                                        P0
+│       ├── ci.yml                                        P0
+│       ├── deploy-staging.yml                            P0
+│       └── deploy-production.yml                         P0
+├── infra/                                                P0
+│   ├── modules/                                          
+│   │   ├── network/                                      P0
+│   │   ├── database/                                     P0
+│   │   ├── compute/                                      P0
+│   │   ├── storage/                                      P0
+│   │   ├── email/                                        P0
+│   │   └── auth/                                         P0
+│   └── envs/                                             
+│       ├── staging/                                      P0
+│       └── production/                                   P0
+├── api/                                                  P0
+│   ├── pyproject.toml                                    P0
+│   ├── Dockerfile                                        P0
+│   ├── alembic.ini                                       P0
+│   ├── alembic/                                          
+│   │   └── versions/                                     P0+
+│   ├── app/                                              P0
+│   │   ├── main.py                                       P0
+│   │   ├── worker.py                                     P1
+│   │   ├── core/                                         P0
+│   │   │   ├── config.py                                 P0
+│   │   │   ├── db.py                                     P0
+│   │   │   ├── security.py                               P1
+│   │   │   ├── time.py                                   P1
+│   │   │   ├── money.py                                  P1
+│   │   │   └── errors.py                                 P0
+│   │   ├── platform/                                     P1
+│   │   │   ├── permissions/                              P1
+│   │   │   │   ├── keys.py                               P1
+│   │   │   │   ├── matrix.py                             P1
+│   │   │   │   ├── scope.py                              P1
+│   │   │   │   └── guard.py                              P1
+│   │   │   ├── reasons/                                  
+│   │   │   │   └── policy.py                             P1
+│   │   │   ├── audit/                                    P1
+│   │   │   ├── outbox/                                   P1
+│   │   │   ├── jobs/                                     P1
+│   │   │   ├── notifications/                            P1
+│   │   │   ├── approvals/                                P1
+│   │   │   ├── realtime/                                 P1
+│   │   │   └── files/                                    P1
+│   │   └── modules/                                      P1+
+│   │       ├── users/                                    P1
+│   │       ├── accounts/                                 P2
+│   │       ├── leads/                                    P2
+│   │       │   ├── assignment/                           P2
+│   │       │   └── transfers.py                          P2
+│   │       ├── pipeline/                                 P3
+│   │       │   ├── config/                               P3
+│   │       │   ├── engine/                               P3
+│   │       │   └── seeds/                                
+│   │       │       ├── new_business.yaml                 P3
+│   │       │       └── existing_customer.yaml            P5
+│   │       ├── deals/                                    P3
+│   │       ├── activities/                               P3
+│   │       ├── catalog/                                  P3
+│   │       ├── documents/                                P3
+│   │       ├── profiles/                                 P3
+│   │       ├── exports/                                  P3
+│   │       ├── integrations/                             
+│   │       │   └── google/                               ST
+│   │       ├── customers/                                P4
+│   │       ├── proposals/                                P4
+│   │       ├── billing/                                  P4
+│   │       ├── usage_feed/                               P4
+│   │       ├── renewals/                                 P5
+│   │       ├── churn/                                    P5
+│   │       ├── performance/                              P6
+│   │       ├── reports/                                  P6
+│   │       ├── capture/                                  P7
+│   │       └── ml/                                       P7
+│   ├── tests/                                            P0+
+│   │   ├── conftest.py                                   P1
+│   │   ├── permissions/                                  P1
+│   │   ├── concurrency/                                  P2
+│   │   ├── billing/                                      P4
+│   │   └── modules/                                      P1+
+│   └── scripts/                                          
+│       └── seed_dev.py                                   P0
+├── web/                                                  P0
+│   ├── package.json                                      P0
+│   └── src/                                              
+│       ├── main.tsx                                      P0
+│       ├── routes.tsx                                    P1
+│       ├── api/                                          P1
+│       ├── auth/                                         P1
+│       ├── components/                                   P1
+│       └── features/                                     P1+
+│           ├── admin/                                    P1
+│           ├── approvals/                                P1
+│           ├── leads/                                    P2
+│           ├── pool/                                     P2
+│           ├── pipeline/                                 P3
+│           ├── deals/                                    P3
+│           ├── today/                                    P3
+│           ├── accounts/                                 P3
+│           ├── customers/                                P4
+│           ├── churn/                                    P5
+│           ├── leaderboard/                              P6
+│           ├── dashboard/                                P6
+│           └── reports/                                  P6
+├── usage-api/                                            P4
+└── docs/                                                 P0
+    ├── prd/                                              P0
+    ├── adr/                                              P0+
+    └── runbooks/                                         P1
